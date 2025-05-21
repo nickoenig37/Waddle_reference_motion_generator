@@ -5,6 +5,7 @@ import json
 import numpy as np
 import placo
 import os
+from mimetypes import knownfiles
 
 warnings.filterwarnings("ignore")
 
@@ -33,7 +34,6 @@ class PlacoWalkEngine:
         else:
             knee_limits = knee_limits or [-2, 2]
 
-
         # Loading the robot
         self.robot = placo.HumanoidRobot(model_filename)
 
@@ -61,7 +61,7 @@ class PlacoWalkEngine:
         self.tasks.com_x = 0.0
         self.tasks.initialize_tasks(self.solver, self.robot)
 
-        if robot_type != "sigmaban2019":
+        if robot_type != "sigmaban2019" and robot_type != "hopejr":
             self.tasks.left_foot_task.orientation().mask.set_axises("yz", "local")
             self.tasks.right_foot_task.orientation().mask.set_axises("yz", "local")
         # tasks.trunk_orientation_task.configure("trunk_orientation", "soft", 1e-4)
