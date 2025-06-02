@@ -8,21 +8,21 @@
   "startend_double_support_ratio": 1.5,
   "planned_timesteps": 54,
   "replan_timesteps": 3,
-  "walk_com_height": 0.5,
-  "walk_foot_height": 0.04,
+  "walk_com_height": 0.65,
+  "walk_foot_height": 0.1,
   "walk_trunk_pitch": 0.0,
   "walk_foot_rise_ratio": 0.3,
   "single_support_duration": 0.36,
   "single_support_timesteps": 12,
-  "foot_length": 0.03,
+  "foot_length": 0.243,
   "feet_spacing": 0.24,
   "zmp_margin": 0.0,
   "foot_zmp_target_x": 0.0,
   "foot_zmp_target_y": 0.0,
   "walk_max_dtheta": 1.0,
-  "walk_max_dy": 0.1,
-  "walk_max_dx_forward": 0.1,
-  "walk_max_dx_backward": 0.1,
+  "walk_max_dy": 0.2,
+  "walk_max_dx_forward": 0.2,
+  "walk_max_dx_backward": 0.2,
   "joints": [
     "torso_yaw",
     "torso_roll",
@@ -65,6 +65,8 @@
     "left_shoulder_roll": 0,
     "left_elbow_yaw": 0,
     "left_elbow_pitch": 0,
-    "left_forearm_yaw": 0
+    "left_forearm_yaw": 0,
+    "left_toe": 0,
+    "right_toe": 0
   }
 }

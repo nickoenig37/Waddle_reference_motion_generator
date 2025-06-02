@@ -214,7 +214,7 @@ for file in all_ref_files:
         ax = axs[i]
         ax.plot(ref, label="Original Data", alpha=0.5)
         ax.plot(poly, label="Polynomial Fit", color="red")
-        ax.set_title(f"{dimensions_names[dim]}")
+        # ax.set_title(f"{dimensions_names[dim]}")
 
     plt.tight_layout()
     plt.show()

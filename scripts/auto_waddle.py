@@ -314,7 +314,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate AMP walking animations")
     parser.add_argument(
         "--duck",
-        choices=["go_bdx", "open_duck_mini", "open_duck_mini_v2", "sigmaban2019"],
+        choices=["go_bdx", "open_duck_mini", "open_duck_mini_v2", "sigmaban2019", "hopejr"],
         help="Duck type",
         required=True,
     )
