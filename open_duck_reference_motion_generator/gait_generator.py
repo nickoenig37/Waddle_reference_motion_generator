@@ -80,10 +80,10 @@ parser.add_argument(
     help="hack to record a standing pose",
 )
 parser.add_argument(
-    "--index_by_dx",
+    "--index_by_vx",
     action="store_true",
     default=False,
-    help="Index by dx instead of vx",
+    help="Index by v instead of dx",
 )
 
 args = parser.parse_args()
@@ -454,7 +454,7 @@ episode["Placo"] = {
 }
 
 
-if not args.index_by_dx:
+if args.index_by_vx:
     x_vel = np.around(steps_to_vel(args.dx, pwe.period), 3)
     y_vel = np.around(steps_to_vel(args.dy, pwe.period), 3)
     theta_vel = np.around(steps_to_vel(args.dtheta, pwe.period), 3)
@@ -463,7 +463,7 @@ if not args.index_by_dx:
     # print(f"computed yvel: {y_vel}, mean yvel: {mean_avg_y_lin_vel}")
     # print(f"computed thetavel: {theta_vel}, mean thetavel: {mean_yaw_vel}")
     name = f"{args.name}_{x_vel}_{y_vel}_{theta_vel}"
-else:
+else: # Default
     name = f"{args.name}_{args.dx}_{args.dy}_{args.dtheta}"
 
 

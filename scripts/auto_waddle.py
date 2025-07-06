@@ -172,8 +172,8 @@ def main(args):
             args.output_dir,
             # "--meshcat_viz"
         ]
-        if args.index_by_dx:
-            cmd += ["--index_by_dx"]
+        if args.index_by_vx:
+            cmd += ["--index_by_vx"]
         # print(cmd)
         # exit()
         log_file = None if args.verbose else os.path.join(log_dir, f"{i}.log")
@@ -364,10 +364,10 @@ if __name__ == "__main__":
         default=f"{SCRIPT_PATH}/../recordings",
     )
     parser.add_argument(
-        "--index_by_dx",
+        "--index_by_vx",
         action="store_true",
         default=False,
-        help="Index by dx instead of vx",
+        help="Index by vx instead of dx",
     )
 
     args = parser.parse_args()
