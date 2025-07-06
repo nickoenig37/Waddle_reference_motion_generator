@@ -98,9 +98,17 @@ def main(args):
     preset_speeds = ["medium"]  # , "fast"]
 
     if args.sweep:
-        dxs = np.arange(min_sweep_x, max_sweep_x + sweep_xy_granularity, sweep_xy_granularity)
-        dys = np.arange(min_sweep_y, max_sweep_y + sweep_xy_granularity, sweep_xy_granularity)
-        dthetas = np.arange(min_sweep_theta, max_sweep_theta + sweep_theta_granularity, sweep_theta_granularity)
+        dxs = np.arange(
+            min_sweep_x, max_sweep_x + sweep_xy_granularity, sweep_xy_granularity
+        )
+        dys = np.arange(
+            min_sweep_y, max_sweep_y + sweep_xy_granularity, sweep_xy_granularity
+        )
+        dthetas = np.arange(
+            min_sweep_theta,
+            max_sweep_theta + sweep_theta_granularity,
+            sweep_theta_granularity,
+        )
         all_n = len(dxs) * len(dys) * len(dthetas)
     else:
         all_n = args.num
@@ -164,6 +172,10 @@ def main(args):
             args.output_dir,
             # "--meshcat_viz"
         ]
+        if args.index_by_dx:
+            cmd += ["--index_by_dx"]
+        # print(cmd)
+        # exit()
         log_file = None if args.verbose else os.path.join(log_dir, f"{i}.log")
         commands.append((cmd, log_file))
 
@@ -351,5 +363,12 @@ if __name__ == "__main__":
         help="Output directory for the recordings",
         default=f"{SCRIPT_PATH}/../recordings",
     )
+    parser.add_argument(
+        "--index_by_dx",
+        action="store_true",
+        default=False,
+        help="Index by dx instead of vx",
+    )
+
     args = parser.parse_args()
     main(args)

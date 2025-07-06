@@ -79,6 +79,13 @@ parser.add_argument(
     default=False,
     help="hack to record a standing pose",
 )
+parser.add_argument(
+    "--index_by_dx",
+    action="store_true",
+    default=False,
+    help="Index by dx instead of vx",
+)
+
 args = parser.parse_args()
 args.hardware = True
 
@@ -139,7 +146,6 @@ first_joints_positions = list(pwe.get_angles().values())
 first_T_world_fbase = pwe.robot.get_T_world_fbase()
 first_T_world_leftFoot = pwe.robot.get_T_world_left()
 first_T_world_rightFoot = pwe.robot.get_T_world_right()
-
 
 
 # # Weirdly, we need these small values so that all directions walk in placo ??
@@ -448,17 +454,19 @@ episode["Placo"] = {
 }
 
 
-# x_vel = np.around(steps_to_vel(args.dx, pwe.period), 3)
-# y_vel = np.around(steps_to_vel(args.dy, pwe.period), 3)
-# theta_vel = np.around(steps_to_vel(args.dtheta, pwe.period), 3)
+if not args.index_by_dx:
+    x_vel = np.around(steps_to_vel(args.dx, pwe.period), 3)
+    y_vel = np.around(steps_to_vel(args.dy, pwe.period), 3)
+    theta_vel = np.around(steps_to_vel(args.dtheta, pwe.period), 3)
 
-# print(f"computed xvel: {x_vel}, mean xvel: {mean_avg_x_lin_vel}")
-# print(f"computed yvel: {y_vel}, mean yvel: {mean_avg_y_lin_vel}")
-# print(f"computed thetavel: {theta_vel}, mean thetavel: {mean_yaw_vel}")
+    # print(f"computed xvel: {x_vel}, mean xvel: {mean_avg_x_lin_vel}")
+    # print(f"computed yvel: {y_vel}, mean yvel: {mean_avg_y_lin_vel}")
+    # print(f"computed thetavel: {theta_vel}, mean thetavel: {mean_yaw_vel}")
+    name = f"{args.name}_{x_vel}_{y_vel}_{theta_vel}"
+else:
+    name = f"{args.name}_{args.dx}_{args.dy}_{args.dtheta}"
 
 
-name = f"{args.name}_{args.dx}_{args.dy}_{args.dtheta}" # Do we need the id in the name ?
-# name = f"{x_vel}_{y_vel}_{theta_vel}"
 file_name = name + str(".json")
 file_path = os.path.join(args.output_dir, file_name)
 os.makedirs(args.output_dir, exist_ok=True)
