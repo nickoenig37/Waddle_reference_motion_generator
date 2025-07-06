@@ -438,6 +438,7 @@ episode["Placo"] = {
     "single_support_duration": pwe.parameters.single_support_duration,
     "single_support_timesteps": pwe.parameters.single_support_timesteps,
     "foot_length": pwe.parameters.foot_length,
+    "foot_width": pwe.parameters.foot_width,
     "feet_spacing": pwe.parameters.feet_spacing,
     "zmp_margin": pwe.parameters.zmp_margin,
     "foot_zmp_target_x": pwe.parameters.foot_zmp_target_x,
