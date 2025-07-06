@@ -451,8 +451,8 @@ episode["Placo"] = {
     "avg_yaw_vel": mean_yaw_vel,
     "preset_name": args.preset.split("/")[-1].split(".")[0],
     "period": pwe.period,
-    "left_target": pwe.parameters.ellipsoid_overlap_clip(placo.HumanoidRobot_Side.left, np.array([args.dx, args.dy, args.dtheta])),
-    "right_target": pwe.parameters.ellipsoid_overlap_clip(placo.HumanoidRobot_Side.right, np.array([args.dx, args.dy, args.dtheta])),
+    "left_target": list(pwe.parameters.ellipsoid_overlap_clip(placo.HumanoidRobot_Side.left, np.array([args.dx, args.dy, args.dtheta]))),
+    "right_target": list(pwe.parameters.ellipsoid_overlap_clip(placo.HumanoidRobot_Side.right, np.array([args.dx, args.dy, args.dtheta]))),
 }
 
 if args.index_by_vx:
