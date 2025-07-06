@@ -448,16 +448,16 @@ episode["Placo"] = {
 }
 
 
-x_vel = np.around(steps_to_vel(args.dx, pwe.period), 3)
-y_vel = np.around(steps_to_vel(args.dy, pwe.period), 3)
-theta_vel = np.around(steps_to_vel(args.dtheta, pwe.period), 3)
+# x_vel = np.around(steps_to_vel(args.dx, pwe.period), 3)
+# y_vel = np.around(steps_to_vel(args.dy, pwe.period), 3)
+# theta_vel = np.around(steps_to_vel(args.dtheta, pwe.period), 3)
 
-print(f"computed xvel: {x_vel}, mean xvel: {mean_avg_x_lin_vel}")
-print(f"computed yvel: {y_vel}, mean yvel: {mean_avg_y_lin_vel}")
-print(f"computed thetavel: {theta_vel}, mean thetavel: {mean_yaw_vel}")
+# print(f"computed xvel: {x_vel}, mean xvel: {mean_avg_x_lin_vel}")
+# print(f"computed yvel: {y_vel}, mean yvel: {mean_avg_y_lin_vel}")
+# print(f"computed thetavel: {theta_vel}, mean thetavel: {mean_yaw_vel}")
 
 
-name = f"{args.name}_{x_vel}_{y_vel}_{theta_vel}" # Do we need the id in the name ?
+name = f"{args.name}_{args.dx}_{args.dy}_{args.dtheta}" # Do we need the id in the name ?
 # name = f"{x_vel}_{y_vel}_{theta_vel}"
 file_name = name + str(".json")
 file_path = os.path.join(args.output_dir, file_name)

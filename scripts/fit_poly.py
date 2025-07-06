@@ -61,6 +61,7 @@ def fit_ref_motion(file):
         "start_offset": start_offset,
         "nb_steps_in_period": nb_steps_in_period,
         "startend_double_support_ratio": startend_double_support_ratio,
+        "feet_spacing": data["Placo"]["feet_spacing"]
     }
 
     return ret_data

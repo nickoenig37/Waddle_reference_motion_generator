@@ -22,8 +22,8 @@
   "foot_zmp_target_y": 0.0,
   "walk_max_dtheta": 1.0,
   "walk_max_dy": 0.1,
-  "walk_max_dx_forward": 0.1,
-  "walk_max_dx_backward": 0.1,
+  "walk_max_dx_forward": 0.14,
+  "walk_max_dx_backward": 0.14,
   "joints": [
     "head_yaw",
     "head_pitch",
