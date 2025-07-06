@@ -7,6 +7,7 @@ import threading
 import numpy as np
 from placo_utils.visualization import footsteps_viz, robot_frame_viz, robot_viz
 from scipy.spatial.transform import Rotation as R
+import placo
 
 from placo_walk_engine import PlacoWalkEngine
 
@@ -451,8 +452,9 @@ episode["Placo"] = {
     "avg_yaw_vel": mean_yaw_vel,
     "preset_name": args.preset.split("/")[-1].split(".")[0],
     "period": pwe.period,
+    "left_target": pwe.parameters.ellipsoid_overlap_clip(placo.HumanoidRobot_Side.left, np.array([args.dx, args.dy, args.dtheta])),
+    "right_target": pwe.parameters.ellipsoid_overlap_clip(placo.HumanoidRobot_Side.right, np.array([args.dx, args.dy, args.dtheta])),
 }
-
 
 if args.index_by_vx:
     x_vel = np.around(steps_to_vel(args.dx, pwe.period), 3)
