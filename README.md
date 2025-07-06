@@ -7,6 +7,8 @@ Open Duck project's reference motion generator for imitation learning, based on 
 
 The reference motions are used in two RL works, one using mujoco playground [here](https://github.com/SteveNguyen/openduckminiv2_playground) and another using Isaac Gym [here](https://github.com/rimim/AWD)
 
+> This repo uses `git-lfs`. Install it with `sudo apt install git-lfs` before cloning the repo
+
 ## Installation 
 
 Install uv
@@ -23,6 +25,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv run scripts/auto_waddle.py (-j?) --duck ["go_bdx", "open_duck_mini", "open_duck_mini_v2"] (--num <> / --sweep) --output_dir <>
 ```
 
+> If you have an error like this : `Failed to determine STL storage representation for <...> Hint: the mesh directory may be wrong`, just run `git lfs pull`
+
 Args : 
 - `-j?` number of jobs. If `j` is not specified, will run sequentially. If `j` is specified without a number, your computer will crash :) (runs with all available cores). Use `j4` for example
 - `--duck` selects the duck type
@@ -30,11 +34,19 @@ Args :
 - `--num` generates <num> random motions
 - `--output_dir` self explanatory
 
+For example, to generate all the reference motion for Open Duck Mini, run :
+
+```bash
+uv run scripts/auto_waddle.py -j8 --duck open_duck_mini_v2 --sweep 
+```
+
+This will write in a directory called `recordings/`
+
 ### Fit polynomials
 
 This will generate `polynomial_coefficients.pkl`
 ```bash
-uv run scripts/fit_poly.py --ref_motion <>
+uv run scripts/fit_poly.py --ref_motion recordings/
 ```
 
 To plot : 
