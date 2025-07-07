@@ -102,7 +102,7 @@ def main(args):
             min_sweep_x, max_sweep_x + sweep_xy_granularity, sweep_xy_granularity
         )
         dys = np.arange(
-            min_sweep_y, max_sweep_y + sweep_xy_granularity, sweep_xy_granularity
+            min_sweep_y, max_sweep_y + sweep_xy_granularity-1e-5, sweep_xy_granularity
         )
         dthetas = np.arange(
             min_sweep_theta,
