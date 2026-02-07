@@ -31,6 +31,8 @@ class PlacoWalkEngine:
             knee_limits = knee_limits or [-0.2, -0.01]
         elif robot_type in ["open_duck_mini_v2"]:
             knee_limits = knee_limits or [0.2, 0.01]
+        elif robot_type in ["microduck"]:
+            knee_limits = [-0.2, -0.01]
         else:
             knee_limits = knee_limits or [-2, 2]
 
@@ -52,8 +54,12 @@ class PlacoWalkEngine:
         self.solver.enable_joint_limits(False)
         self.solver.dt = DT / REFINE
 
-        self.robot.set_joint_limits("left_knee", *knee_limits)
-        self.robot.set_joint_limits("right_knee", *knee_limits)
+        if robot_type == "microduck":
+            self.robot.set_joint_limits("left_knee", -0.2, -0.01)
+            self.robot.set_joint_limits("right_knee", 0.2, 0.01)
+        else:        
+            self.robot.set_joint_limits("left_knee", *knee_limits)
+            self.robot.set_joint_limits("right_knee", *knee_limits)
 
         # Creating the walk QP tasks
         self.tasks = placo.WalkTasks()
@@ -151,6 +157,7 @@ class PlacoWalkEngine:
         params.single_support_duration = data.get('single_support_duration', params.single_support_duration)
         params.single_support_timesteps = data.get('single_support_timesteps', params.single_support_timesteps)
         params.foot_length = data.get('foot_length', params.foot_length)
+        params.foot_width = data.get('foot_width', params.foot_width)
         params.feet_spacing = data.get('feet_spacing', params.feet_spacing)
         params.zmp_margin = data.get('zmp_margin', params.zmp_margin)
         params.foot_zmp_target_x = data.get('foot_zmp_target_x', params.foot_zmp_target_x)

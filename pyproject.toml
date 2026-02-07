@@ -10,6 +10,7 @@ dependencies = [
     "matplotlib>=3.10.0",
     "placo==0.9.14",
     "pygame>=2.6.1",
+    "pyqt5>=5.15.11",
     "scikit-learn>=1.6.1",
     "scipy>=1.15.2",
 ]

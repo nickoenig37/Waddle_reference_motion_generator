@@ -1,2 +1,5 @@
 uv.lock
 open_duck_reference_motion_generator/__pycache__/
+*.pkl
+out/
+out_old/
