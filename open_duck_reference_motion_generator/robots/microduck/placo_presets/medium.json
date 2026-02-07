@@ -16,7 +16,7 @@
   "single_support_timesteps": 12,
   "foot_length": 0.055,
   "foot_width": 0.035,
-  "feet_spacing": 0.07,
+  "feet_spacing": 0.09,
   "zmp_margin": 0.0,
   "foot_zmp_target_x": 0.0,
   "foot_zmp_target_y": -0.15,
