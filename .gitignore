@@ -5,3 +5,5 @@ tmp/*
 **/tmp/*
 !**/tmp/.gitkeep
 **/log/*
+waddle_v2_motions/*
+waddle_v2_tests/*

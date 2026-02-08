@@ -27,7 +27,7 @@ class PlacoWalkEngine:
         self.ignore_feet_contact = ignore_feet_contact
 
         robot_type = asset_path.split("/")[-1]
-        if robot_type in ["open_duck_mini", "go_bdx"]:
+        if robot_type in ["open_duck_mini", "go_bdx", "waddle", "waddle_v2"]:
             knee_limits = knee_limits or [-0.2, -0.01]
         else:
             knee_limits = knee_limits or [0.2, 0.01]

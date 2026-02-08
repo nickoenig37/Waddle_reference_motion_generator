@@ -43,7 +43,7 @@ parser.add_argument("--walk_max_dx_backward", type=float, default=None)
 parser.add_argument("-l", "--length", type=int, default=10)
 parser.add_argument(
     "--duck",
-    choices=["go_bdx", "open_duck_mini", "open_duck_mini_v2"],
+    choices=["go_bdx", "open_duck_mini", "open_duck_mini_v2", "waddle", "waddle_v2"],
     help="Duck type",
     required=True,
 )
@@ -92,6 +92,15 @@ class GaitParameters:
             self.robot = 'go_bdx'
             self.robot_urdf = "go_bdx.urdf"
             self.asset_path = os.path.join(script_path, "../open_duck_reference_motion_generator/robots/go_bdx/")
+        elif args.duck == "waddle":
+            self.robot = 'waddle'
+            self.robot_urdf = "waddle.urdf"
+            self.asset_path = os.path.join(script_path, "../open_duck_reference_motion_generator/robots/waddle/")
+        elif args.duck == "waddle_v2":
+            self.robot = 'waddle_v2'
+            self.robot_urdf = "waddle_v2.urdf"
+            self.asset_path = os.path.join(script_path, "../open_duck_reference_motion_generator/robots/waddle_v2/")
+        
         self.dx = 0.1
         self.dy = 0.0
         self.dtheta = 0.0
