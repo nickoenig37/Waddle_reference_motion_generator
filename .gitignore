@@ -1,2 +1,6 @@
 uv.lock
 open_duck_reference_motion_generator/__pycache__/
+tmp/*
+!tmp/.gitkeep
+**/tmp/*
+!**/tmp/.gitkeep
